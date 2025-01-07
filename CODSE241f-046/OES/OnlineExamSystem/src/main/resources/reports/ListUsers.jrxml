@@ -1,0 +1,62 @@
+<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
+<jasperReport name="ListUsers" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="933ad793-8145-440f-8d92-04b276326dd4">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="MYSQL"/>
+	<query language="SQL"><![CDATA[SELECT * FROM users;]]></query>
+	<field name="user_id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="user_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="user_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="users"/>
+	</field>
+	<field name="username" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="username"/>
+		<property name="com.jaspersoft.studio.field.label" value="username"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="users"/>
+	</field>
+	<field name="role" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="role"/>
+		<property name="com.jaspersoft.studio.field.label" value="role"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="users"/>
+	</field>
+	<background splitType="Stretch"/>
+	<title height="79" splitType="Stretch">
+		<element kind="staticText" uuid="951c647c-a5fe-47e1-a4b9-c9833477dc97" x="230" y="0" width="100" height="79" fontSize="20.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Q-EXAMZ]]></text>
+		</element>
+	</title>
+	<pageHeader height="44" splitType="Stretch">
+		<element kind="staticText" uuid="a691f04f-d4de-4b16-ad8e-748e49aa3488" x="230" y="0" width="100" height="44" fontSize="14.0" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[List of Users]]></text>
+		</element>
+	</pageHeader>
+	<columnHeader height="67" splitType="Stretch">
+		<element kind="staticText" uuid="412c8a70-3258-4038-b4ee-4b7a80be7cd1" x="380" y="0" width="100" height="66" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Role]]></text>
+		</element>
+		<element kind="staticText" uuid="f3fb2731-a562-4c57-b277-d68483b9a0f7" x="230" y="0" width="100" height="66" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Username]]></text>
+		</element>
+		<element kind="staticText" uuid="6ce76bb6-8686-42b7-97f2-42d5fcfb1259" x="80" y="0" width="100" height="66" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[User Identity]]></text>
+		</element>
+		<element kind="line" uuid="6227741f-0db0-4d04-b587-b12fcadc55ce" x="-8" y="60" width="570" height="1">
+			<pen lineWidth="3.0" lineStyle="Solid"/>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="41" splitType="Stretch">
+			<element kind="textField" uuid="642e8686-1a79-4d89-b6ef-29da4d49f4d7" x="80" y="10" width="100" height="20" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{user_id}]]></expression>
+			</element>
+			<element kind="textField" uuid="8a81c3c0-4a61-43dd-b7f8-6f91ea26280c" x="230" y="10" width="100" height="20" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{username}]]></expression>
+			</element>
+			<element kind="textField" uuid="50f61aba-14b8-456d-883e-d03f12bae5cb" x="380" y="10" width="100" height="21" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{role}]]></expression>
+			</element>
+		</band>
+	</detail>
+	<columnFooter height="45" splitType="Stretch"/>
+	<pageFooter height="54" splitType="Stretch"/>
+	<summary height="42" splitType="Stretch"/>
+</jasperReport>

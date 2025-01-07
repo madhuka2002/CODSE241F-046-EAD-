@@ -1,0 +1,120 @@
+<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
+<jasperReport name="UserResult" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2168299f-b73f-4a2e-b074-3f49ca79b504">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="MYSQL"/>
+	<parameter name="quizCode" class="java.lang.String"/>
+	<query language="SQL"><![CDATA[SELECT r.correct_answers, r.incorrect_answers, q.quiz_code, q.quiz_name, q.quiz_desc, r.user_id, r.quiz_code, u.username
+FROM result r
+JOIN quizzes q ON r.quiz_code = q.quiz_code
+JOIN users u ON r.user_id = u.user_id
+WHERE r.quiz_code = $P{quizCode}
+]]></query>
+	<field name="correct_answers" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="correct_answers"/>
+		<property name="com.jaspersoft.studio.field.label" value="correct_answers"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="result"/>
+	</field>
+	<field name="incorrect_answers" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="incorrect_answers"/>
+		<property name="com.jaspersoft.studio.field.label" value="incorrect_answers"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="result"/>
+	</field>
+	<field name="quiz_code" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="quiz_code"/>
+		<property name="com.jaspersoft.studio.field.label" value="quiz_code"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="quizzes"/>
+	</field>
+	<field name="quiz_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="quiz_name"/>
+		<property name="com.jaspersoft.studio.field.label" value="quiz_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="quizzes"/>
+	</field>
+	<field name="quiz_desc" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="quiz_desc"/>
+		<property name="com.jaspersoft.studio.field.label" value="quiz_desc"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="quizzes"/>
+	</field>
+	<field name="user_id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="user_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="user_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="result"/>
+	</field>
+	<field name="COLUMN_7" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="quiz_code"/>
+		<property name="com.jaspersoft.studio.field.label" value="quiz_code"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="result"/>
+	</field>
+	<field name="username" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="username"/>
+		<property name="com.jaspersoft.studio.field.label" value="username"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="users"/>
+	</field>
+	<variable name="correct_answers1" resetType="Column" calculation="Sum" class="java.lang.Integer">
+		<expression><![CDATA[$F{correct_answers}]]></expression>
+	</variable>
+	<variable name="incorrect_answers1" resetType="Column" calculation="Sum" class="java.lang.Integer">
+		<expression><![CDATA[$F{incorrect_answers}]]></expression>
+	</variable>
+	<variable name="correct_answers_SUM" calculation="Sum" class="java.lang.Integer">
+		<expression><![CDATA[$F{correct_answers}]]></expression>
+	</variable>
+	<background splitType="Stretch"/>
+	<title height="97" splitType="Stretch">
+		<element kind="textField" uuid="56c15d6d-8f22-4453-9d57-04f18e4cc856" x="-20" y="0" width="595" height="79" fontName="Candara" fontSize="30.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<expression><![CDATA[$F{quiz_name}]]></expression>
+		</element>
+		<element kind="textField" uuid="8a527ee7-1f28-4433-b8ae-b7f71c7958a6" x="460" y="49" width="95" height="30" fontName="Candara" fontSize="11.0" pattern="MMMMM dd, yyyy" hTextAlign="Center" vTextAlign="Bottom">
+			<expression><![CDATA[new java.util.Date()]]></expression>
+		</element>
+		<element kind="textField" uuid="a282bcd8-752d-4307-861b-b69e6f4f81bd" x="450" y="0" width="100" height="30" fontName="Candara" bold="true" hTextAlign="Right">
+			<expression><![CDATA[$F{quiz_code}]]></expression>
+		</element>
+	</title>
+	<pageHeader height="67" splitType="Stretch">
+		<element kind="textField" uuid="d8542195-6e22-49fa-8734-f70a51320608" x="0" y="0" width="550" height="67" fontName="Candara" fontSize="12.0" hTextAlign="Left" vTextAlign="Top">
+			<expression><![CDATA[$F{quiz_desc}]]></expression>
+		</element>
+	</pageHeader>
+	<columnHeader height="86" splitType="Stretch">
+		<element kind="staticText" uuid="e4b12299-d243-4f37-9a46-1374075c78ea" x="-20" y="0" width="595" height="30" fontName="Candara" fontSize="14.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Result Summary]]></text>
+		</element>
+		<element kind="line" uuid="0aed09b4-fbc3-46ad-8dd1-e7295df20121" x="-20" y="80" width="595" height="1"/>
+		<element kind="staticText" uuid="584a68e9-6e31-4c13-b26d-3bce92ad0558" x="40" y="46" width="78" height="34" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Student Identity ]]></text>
+		</element>
+		<element kind="staticText" uuid="fadb0d24-a2e6-4a78-9c74-b29e306c9c51" x="140" y="46" width="78" height="34" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Username]]></text>
+		</element>
+		<element kind="staticText" uuid="d5e54e19-f625-4541-b7b9-ded293cc8e5e" x="240" y="47" width="78" height="34" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[No. of Correct]]></text>
+		</element>
+		<element kind="staticText" uuid="86cb3218-e774-4537-83ee-29e046c34c31" x="340" y="47" width="78" height="34" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[No. of Incorrect]]></text>
+		</element>
+		<element kind="staticText" uuid="dbdd42b3-9b5f-4568-b38e-57fef5f36056" x="440" y="46" width="78" height="34" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Marks]]></text>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="39" splitType="Stretch">
+			<element kind="textField" uuid="aca746e9-da4c-4dd5-a629-a90723262ede" x="41" y="0" width="80" height="34" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{user_id}]]></expression>
+			</element>
+			<element kind="textField" uuid="3c20197f-6063-4335-977d-d4476ef2012b" x="140" y="0" width="80" height="34" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{username}]]></expression>
+			</element>
+			<element kind="textField" uuid="2918293d-5180-48a3-88bf-ec5b1ff69851" x="240" y="0" width="80" height="34" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{correct_answers}]]></expression>
+			</element>
+			<element kind="textField" uuid="75e2ecf4-ec37-4235-8ee0-005ba2aaf0c4" x="340" y="0" width="80" height="34" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{incorrect_answers}]]></expression>
+			</element>
+			<element kind="textField" uuid="dc0bb632-1ea3-4595-bbdb-712a85dbddce" x="441" y="0" width="80" height="34" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{correct_answers} + " / " + ($F{correct_answers} + $F{incorrect_answers})]]></expression>
+			</element>
+		</band>
+	</detail>
+	<columnFooter height="52" splitType="Stretch"/>
+	<pageFooter height="54" splitType="Stretch"/>
+</jasperReport>
